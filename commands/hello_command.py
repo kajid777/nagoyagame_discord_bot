@@ -5,7 +5,7 @@ from config import ADMIN_CHANNEL_ID
 async def setup_hello_command(tree, client):
     """helloコマンドをCommandTreeに登録する"""
     
-    @tree.command(name="おまえを", description="指定したチャンネルにhelloworldと送信します")
+    @tree.command(name="hello", description="指定したチャンネルにhelloworldと送信します")
     async def hello_command(interaction: discord.Interaction):
         # メッセージを送信
         target_channel = client.get_channel(ADMIN_CHANNEL_ID)

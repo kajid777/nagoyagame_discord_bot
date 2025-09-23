@@ -11,6 +11,7 @@ tree = app_commands.CommandTree(client)
 # コマンドを直接ここで登録
 from commands.hello_command import setup_hello_command
 from commands.submit_command import setup_submit_command
+from commands.key_command import setup_key_command
 
 # 起動時にターミナルにログイン通知が表示される
 @client.event
@@ -20,6 +21,7 @@ async def on_ready():
     # コマンドをセットアップ
     await setup_hello_command(tree, client)
     await setup_submit_command(tree, client)
+    await setup_key_command(tree, client)
     
     # スラッシュコマンドを同期
     try:
