@@ -1,6 +1,6 @@
 import discord
 from discord import app_commands
-from check_answer import check_answer, EBIFLY_CORRECT, HAMIGAKI_CORRECT
+from check_answer import check_answer, EBIFLY_CORRECT, HAMIGAKI_CORRECT, BOMB1_CORRECT, BOMB2_CORRECT, BOMB3_CORRECT, BOMB4_CORRECT
 from config import ALLOWED_CHANNEL_IDS
 
 async def setup_key_command(tree, client):
@@ -63,6 +63,79 @@ async def setup_key_command(tree, client):
             # ログ出力
             print(f"[key command] チャンネルID: {channel_id}, メッセージ: {message}")
             return
+            
+        elif which_answer == BOMB1_CORRECT:
+            # BOMB1正解の場合
+            # 本人にだけ見える確認メッセージ
+            await interaction.response.send_message("✅", ephemeral=True)
+            
+            # 画像を送信
+            try:
+                image_file = discord.File("２つ目爆弾謎.jpg")
+                await channel.send(file=image_file)
+            except FileNotFoundError:
+                print("エラー: 画像ファイルが見つかりません")
+            except Exception as e:
+                print(f"画像送信エラー: {e}")
+            
+            # ログ出力
+            print(f"[key command] チャンネルID: {channel_id}, BOMB1正解")
+            return
+            
+        elif which_answer == BOMB2_CORRECT:
+            # BOMB2正解の場合
+            # 本人にだけ見える確認メッセージ
+            await interaction.response.send_message("✅", ephemeral=True)
+            
+            # 画像を送信
+            try:
+                image_file = discord.File("３つ目爆弾謎.jpg")
+                await channel.send(file=image_file)
+            except FileNotFoundError:
+                print("エラー: 画像ファイルが見つかりません")
+            except Exception as e:
+                print(f"画像送信エラー: {e}")
+            
+            # ログ出力
+            print(f"[key command] チャンネルID: {channel_id}, BOMB2正解")
+            return
+            
+        elif which_answer == BOMB3_CORRECT:
+            # BOMB3正解の場合
+            # 本人にだけ見える確認メッセージ
+            await interaction.response.send_message("✅", ephemeral=True)
+            
+            # 画像を送信
+            try:
+                image_file = discord.File("４つ目爆弾謎.jpg")
+                await channel.send(file=image_file)
+            except FileNotFoundError:
+                print("エラー: 画像ファイルが見つかりません")
+            except Exception as e:
+                print(f"画像送信エラー: {e}")
+            
+            # ログ出力
+            print(f"[key command] チャンネルID: {channel_id}, BOMB3正解")
+            return
+            
+        elif which_answer == BOMB4_CORRECT:
+            # BOMB4正解の場合
+            # 本人にだけ見える確認メッセージ
+            await interaction.response.send_message("✅", ephemeral=True)
+            
+            # 画像を送信
+            try:
+                image_file = discord.File("全問題解けたときのメッセージ.jpg")
+                await channel.send(file=image_file)
+            except FileNotFoundError:
+                print("エラー: 画像ファイルが見つかりません")
+            except Exception as e:
+                print(f"画像送信エラー: {e}")
+            
+            # ログ出力
+            print(f"[key command] チャンネルID: {channel_id}, BOMB4正解 - 全問題クリア！")
+            return
+            
         else:
             # 不正解の場合
             message = f"❌ **不正解**「 `{text}` 」は違う"
