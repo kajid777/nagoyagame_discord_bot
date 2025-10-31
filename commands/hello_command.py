@@ -10,7 +10,7 @@ async def setup_hello_command(tree, client):
         # メッセージを送信
         target_channel = client.get_channel(ADMIN_CHANNEL_ID)
         if target_channel:
-            await target_channel.send("helloworld")
+            await target_channel.send("殺す")
             # コマンドを実行した本人にだけ見える確認メッセージを送る
             await interaction.response.send_message(f"{target_channel.name} にメッセージを送りました！")
         else:
